@@ -1,0 +1,222 @@
+:root{
+  --bg:#8BD3E6;              /* Home page background */
+  --surface:#ffffff;
+  --primary:#4f46e5;
+  --primary-soft:rgba(79,70,229,0.08);
+  --text:#0f2940;
+  --muted:#4b6b80;
+  --border:#e6eef8;
+  --success:#10b981;
+
+  --login-bg:#b1e6f3;        /* Login page background */
+  --tutor-bg:#a2bffe;        /* Tutor profile background */
+
+  --radius-lg:20px;
+  --radius-md:16px;
+  --radius-sm:12px;
+
+  --shadow-sm:0 1px 2px rgba(2,6,23,0.05);
+  --shadow-md:0 6px 18px rgba(2,6,23,0.06);
+  --shadow-lg:0 20px 40px rgba(2,6,23,0.08);
+
+  --transition:all .2s ease;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body,html,#root{
+  height:100%;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.app-root{
+  min-height:100vh;
+  background:var(--bg); /* Home background */
+  color:var(--text);
+}
+
+/* ================= AUTH PAGES ================= */
+
+.auth-wrapper{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--login-bg); /* Login page color */
+  padding:24px;
+}
+
+.auth-card{
+  width:100%;
+  max-width:420px;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:32px;
+  box-shadow:var(--shadow-lg);
+}
+
+.auth-form{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.auth-input{
+  padding:12px 14px;
+  border-radius:var(--radius-md);
+  border:1px solid var(--border);
+  background:white;
+  font-size:0.95rem;
+  transition:var(--transition);
+}
+
+.auth-input:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 4px var(--primary-soft);
+}
+
+.auth-button{
+  padding:12px;
+  border-radius:var(--radius-md);
+  border:0;
+  font-weight:700;
+  cursor:pointer;
+  background:var(--primary);
+  color:white;
+  transition:var(--transition);
+}
+
+.auth-button:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md);
+}
+
+/* ================= MAIN ================= */
+
+.main{
+  max-width:1100px;
+  margin:24px auto;
+  padding:12px;
+  padding-bottom:90px;
+}
+
+.section-title{
+  font-size:1.25rem;
+  font-weight:700;
+  margin-bottom:16px;
+}
+
+/* ================= CARDS ================= */
+
+.card.panel,
+.setup-card{
+  background:white;
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px;
+  box-shadow:var(--shadow-md);
+}
+
+/* ================= TUTOR GRID ================= */
+
+.tutor-grid{
+  display:grid;
+  grid-template-columns:repeat(1,1fr);
+  gap:18px;
+}
+
+@media(min-width:640px){
+  .tutor-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(min-width:1024px){
+  .tutor-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+.tutor-card{
+  background:var(--tutor-bg); /* Tutor profile color */
+  border-radius:var(--radius-lg);
+  padding:18px;
+  transition:var(--transition);
+}
+
+.tutor-card:hover{
+  box-shadow:var(--shadow-lg);
+  transform:translateY(-4px);
+}
+
+.tutor-name{
+  font-size:1rem;
+  margin-bottom:6px;
+}
+
+.tutor-subject{
+  color:var(--muted);
+  font-size:0.875rem;
+  margin-bottom:12px;
+}
+
+.tutor-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-top:12px;
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+
+.tutor-price{
+  color:var(--primary);
+  font-weight:800;
+  font-size:1.125rem;
+}
+
+/* ================= BUTTONS ================= */
+
+.book-btn{
+  padding:8px 14px;
+  border-radius:var(--radius-sm);
+  border:0;
+  font-weight:700;
+  cursor:pointer;
+  background:var(--text);
+  color:white;
+  transition:var(--transition);
+}
+
+.book-btn:hover{
+  background:linear-gradient(90deg,var(--text),var(--primary));
+}
+
+.book-btn.disabled{
+  background:#f3f4f6;
+  color:#9ca3af;
+  cursor:not-allowed;
+}
+
+/* ================= FOOTER ================= */
+
+.mobile-footer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  background:white;
+  border-top:1px solid var(--border);
+  padding:10px 24px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+}
+
+/* ================= ACCESSIBILITY ================= */
+
+button:focus,
+input:focus{
+  outline:3px solid var(--primary-soft);
+  outline-offset:2px;
+}
